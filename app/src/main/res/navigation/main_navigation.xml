@@ -10,4 +10,19 @@
         android:name="com.starshine.betracker.ui.SignIn"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.starshine.betracker.ui.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.starshine.betracker.ui.Statistics"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.starshine.betracker.ui.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
