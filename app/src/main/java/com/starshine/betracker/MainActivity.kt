@@ -2,10 +2,39 @@ package com.starshine.betracker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.starshine.betracker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.signIn,
+        ))
+
+        val fragHost = supportFragmentManager.findFragmentById(R.id.fragHost) as NavHostFragment
+        navController = fragHost.findNavController()
+
+        navController.addOnDestinationChangedListener { _, destination, _->
+            binding.bottomNav.isVisible = appBarConfiguration.topLevelDestinations.contains(destination.id)
+
+        }
+        binding.bottomNav.setupWithNavController(navController)
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
