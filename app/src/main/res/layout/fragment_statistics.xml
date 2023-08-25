@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/main_background_gradient"
     tools:context=".ui.Statistics">
 
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/logo_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="16dp"
-        android:src="@drawable/back_arrow"
+        android:layout_marginStart="24dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
+        android:padding="16dp"
+        android:src="@drawable/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/logo_img" />
 
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Add New Post"
+        android:text="Planner"
         android:textColor="?attr/colorSurface"
-        android:textSize="18dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/back_btn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,4 +45,117 @@
         app:layout_constraintStart_toEndOf="@id/back_btn"
         app:layout_constraintTop_toTopOf="@+id/back_btn"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/month_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/filter_vertical_icon"
+        android:drawablePadding="6dp"
+        android:text="December"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorSurface"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/total_amount_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="$-687"
+        android:textColor="?attr/colorSurface"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/month_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/month_text" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_img"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:padding="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/straw_hats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/month_text"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+        app:strokeColor="@color/be_dark_purple"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/expense_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="35dp"
+        android:text="Expenses"
+        android:textColor="?attr/colorSurface"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
+
+    <View
+        android:id="@+id/expense_underline"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/be_green"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/expense_holder"
+        app:layout_constraintTop_toBottomOf="@+id/expense_holder" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/earning_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="60dp"
+        android:text="Earnings"
+        android:textColor="?attr/colorSurface"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
+
+    <View
+        android:id="@+id/earning_underline"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/be_red"
+        app:layout_constraintEnd_toEndOf="@+id/earning_holder"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/earning_holder" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/planner_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/earning_underline"
+        tools:itemCount="3"
+        tools:listitem="@layout/planner_categories_viewholder" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

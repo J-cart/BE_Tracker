@@ -12,20 +12,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/logo_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="50dp"
             android:padding="10dp"
             android:text="Hello, John Doe"
             android:textColor="?attr/colorSurface"
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/logo_img" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_img"
@@ -55,7 +63,7 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/logo_img"
+                android:id="@+id/card_img"
                 android:layout_width="340dp"
                 android:layout_height="178dp"
                 android:layout_marginStart="53dp"
