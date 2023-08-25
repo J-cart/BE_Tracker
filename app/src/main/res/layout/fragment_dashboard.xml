@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background_gradient"
+    android:clipChildren="false"
+    tools:context=".ui.Dashboard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"
+            android:text="Hello, John Doe"
+            android:textColor="?attr/colorSurface"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_img"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="40dp"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/straw_hats"
+            app:layout_constraintBottom_toBottomOf="@+id/header_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_text"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/be_dark_purple"
+            app:strokeWidth="1dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_dark_back"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/card_dark_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_text">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/logo_img"
+                android:layout_width="340dp"
+                android:layout_height="178dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="53dp"
+                android:alpha="0.85"
+                android:background="@drawable/card_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/balance_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="13dp"
+                    android:text="My balance"
+                    android:textColor="?attr/colorSurface"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/balance_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:maxLength="21"
+                    android:text="$22,345.78"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/balance_holder"
+                    app:layout_constraintTop_toBottomOf="@+id/balance_holder" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/earning_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="Earning"
+                    android:textColor="?attr/colorSurface"
+                    app:layout_constraintBottom_toTopOf="@+id/earning_text"
+
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/earning_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="28dp"
+                    android:maxLength="9"
+                    android:text="$2,800.00"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="@+id/earning_holder" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/expense_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+
+                    android:text="Expense"
+                    android:textColor="?attr/colorSurface"
+                    app:layout_constraintBottom_toTopOf="@+id/expense_text"
+                    app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/expense_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginBottom="28dp"
+                    android:maxLength="10"
+                    android:text="$-687"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/expense_holder" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clipChildren="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_dark_back"
+            tools:itemCount="11"
+            tools:listitem="@layout/category_item_viewholder" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_expense_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/be_red"
+            android:text="Add Expenses"
+            app:icon="@drawable/arrow_down"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/categories_recycler_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_earning_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="33dp"
+            android:backgroundTint="@color/be_green"
+            android:text="Add Earnings"
+            app:icon="@drawable/arrow_up"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categories_recycler_view" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/goals_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="31dp"
+            android:text="GOALS"
+            android:textColor="?attr/colorSurface"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_earning_btn" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/see_all_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="65dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:text="See all"
+            android:textColor="?attr/colorSurface"
+            app:layout_constraintBottom_toBottomOf="@+id/goals_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/goals_text" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/goals_one_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="35dp"
+            android:text="Travel"
+            android:textColor="?attr/colorSurface"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goals_text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/goals_one_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60%"
+            android:textColor="?attr/colorSurface"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/goals_one_text"
+            app:layout_constraintEnd_toEndOf="@+id/see_all_text"
+            app:layout_constraintTop_toTopOf="@+id/goals_one_text" />
+
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/goal_one_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:progress="60"
+            app:indicatorColor="@color/be_green"
+            app:layout_constraintEnd_toStartOf="@+id/see_all_text"
+            app:layout_constraintStart_toStartOf="@+id/goals_one_text"
+            app:layout_constraintTop_toBottomOf="@+id/goals_one_text"
+            app:trackColor="#FDFDFD"
+            app:trackCornerRadius="20dp"
+            app:trackThickness="10dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/goals_two_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="15dp"
+            android:text="Apartment"
+            android:textColor="?attr/colorSurface"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal_one_progress_bar" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/goals_two_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7%"
+            android:textColor="?attr/colorSurface"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/goals_two_text"
+            app:layout_constraintEnd_toEndOf="@+id/see_all_text"
+            app:layout_constraintTop_toTopOf="@+id/goals_two_text" />
+
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/goal_two_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:progress="7"
+            app:indicatorColor="@color/be_green"
+            app:layout_constraintEnd_toStartOf="@+id/see_all_text"
+            app:layout_constraintStart_toStartOf="@+id/goals_two_text"
+            app:layout_constraintTop_toBottomOf="@+id/goals_two_text"
+            app:trackColor="#FDFDFD"
+            app:trackCornerRadius="20dp"
+            app:trackThickness="10dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/goal_two_progress_bar" />
+
+        <!--<View
+        android:id="@+id/_dark_back"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/card_dark_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/logo_img"
+        android:layout_width="324dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="53dp"
+        android:alpha="0.85"
+        android:background="@drawable/card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -8,8 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="be_purple">#EB00FF</color>
+    <color name="be_purple">#DB00FF</color>
     <color name="be_dark_purple">#3E0048</color>
+    <color name="be_dark_purple_1">#57146C</color>
     <color name="be_red">#FF0000</color>
     <color name="be_green">#00FF19</color>
     <color name="be_yellow">#FFD600</color>

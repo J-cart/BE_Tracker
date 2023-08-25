@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             R.id.signIn,
             R.id.profile,
             R.id.statistics,
+            R.id.dashboard,
             R.id.settings,
             R.id.profile
         ))
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity() {
         navController = fragHost.findNavController()
 
         navController.addOnDestinationChangedListener { _, destination, _->
-            binding.bottomNav.isVisible = appBarConfiguration.topLevelDestinations.contains(destination.id)
-
+            binding.bottomNav.isVisible = destination.id != R.id.signIn
         }
         binding.bottomNav.setupWithNavController(navController)
     }

@@ -2,4 +2,6 @@
     <string name="app_name">BE Tracker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank">Hello \nblank \nfragment</string>
+    <string name="welcome_text">Welcome \nTo \nSafeKash</string>
 </resources>

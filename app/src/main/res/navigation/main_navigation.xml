@@ -9,7 +9,13 @@
         android:id="@+id/signIn"
         android:name="com.starshine.betracker.ui.SignIn"
         android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_dashboard"
+            app:destination="@id/dashboard"
+            app:popUpTo="@id/signIn"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.starshine.betracker.ui.Profile"
@@ -25,4 +31,9 @@
         android:name="com.starshine.betracker.ui.Settings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.starshine.betracker.ui.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 </navigation>
