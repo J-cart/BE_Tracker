@@ -81,13 +81,13 @@
         android:layout_marginTop="10dp"
         android:padding="1dp"
         android:scaleType="fitXY"
-        android:src="@drawable/straw_hats"
+        android:src="@drawable/simpson"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/month_text"
         app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
         app:strokeColor="@color/be_dark_purple"
-        app:strokeWidth="1dp" />
+        app:strokeWidth="0dp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/expense_holder"
