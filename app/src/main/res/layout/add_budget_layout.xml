@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Add Expense" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/details_edt_box"
+        style="@style/CustomInputLayoutOutlined"
+        android:theme="@style/CustomInputLayoutAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@+id/title_text"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/details_edt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Details here"
+            android:maxLines="1"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/amount_edt_box"
+        style="@style/CustomInputLayoutOutlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:theme="@style/CustomInputLayoutAccent"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/details_edt_box"
+        app:layout_constraintStart_toStartOf="@+id/details_edt_box"
+        app:layout_constraintTop_toBottomOf="@+id/details_edt_box">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amount_edt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/budgetTypeBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Budget Type"
+        app:layout_constraintEnd_toEndOf="@+id/amount_edt_box"
+        app:layout_constraintStart_toStartOf="@+id/amount_edt_box"
+        app:layout_constraintTop_toBottomOf="@+id/amount_edt_box">
+
+        <AutoCompleteTextView
+            android:id="@+id/budgetTypeDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/be_purple"
+        android:text="Add Expense"
+        android:textColor="?attr/colorSurface"
+        app:layout_constraintEnd_toEndOf="@+id/amount_edt_box"
+        app:layout_constraintStart_toStartOf="@+id/budgetTypeBox"
+        app:layout_constraintTop_toBottomOf="@+id/budgetTypeBox" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancel_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:text="cancel"
+        android:textColor="@color/be_purple"
+        app:layout_constraintEnd_toEndOf="@+id/add_btn"
+        app:layout_constraintStart_toStartOf="@+id/add_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

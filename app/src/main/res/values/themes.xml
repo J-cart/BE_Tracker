@@ -18,4 +18,13 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="CustomInputLayoutOutlined" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/be_purple</item>
+    </style>
+
+    <style name="CustomInputLayoutAccent" parent="ThemeOverlay.AppCompat">
+        <item name="android:colorAccent">@color/be_purple</item>
+        <item name="colorPrimary">@color/be_purple</item>
+    </style>
 </resources>
