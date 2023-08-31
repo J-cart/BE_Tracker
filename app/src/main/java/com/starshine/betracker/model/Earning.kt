@@ -6,11 +6,12 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "Test Table")
-data class Drink(
+@Entity(tableName = "Earning Table")
+data class Earning(
     @PrimaryKey(autoGenerate = true)
     val tableId:Int =0,
-    val drinkId: String,
-    val drinkName: String,
-    val drinkImgUrl: String,
+    val amount: Int,
+    val details: String,
+    val category: BudgetCategory,
+    val dateCreated: String,
 ):Parcelable
