@@ -148,6 +148,18 @@
         tools:itemCount="3"
         tools:listitem="@layout/planner_categories_viewholder" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="No transaction(s) available"
+        android:textColor="?attr/colorSurface"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense_underline" />
 
 
     <androidx.constraintlayout.widget.Guideline

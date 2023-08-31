@@ -10,17 +10,19 @@ import coil.load
 import com.starshine.betracker.R
 import com.starshine.betracker.databinding.CategoryItemViewholderBinding
 import com.starshine.betracker.databinding.PlannerCategoriesViewholderBinding
+import com.starshine.betracker.model.BudgetCategory
 import com.starshine.betracker.model.TransactionCategories
+import com.starshine.betracker.model.TransactionsModel
 
-class TransactionCategoriesAdapter : ListAdapter<TransactionCategories, TransactionCategoriesAdapter.ViewHolder>(diffObject) {
+class TransactionCategoriesAdapter : ListAdapter<TransactionsModel, TransactionCategoriesAdapter.ViewHolder>(diffObject) {
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             private val binding = PlannerCategoriesViewholderBinding.bind(view)
-            fun bind(item: TransactionCategories) {
+            fun bind(item: TransactionsModel) {
                 binding.apply {
-                    typeText.text = item.title
-                    amountText.text = "$${item.total_amount}"
-                    totalTransactionText.text = "${item.amount} Transaction(s)"
-                    categoryImg.load(item.icon)
+                    typeText.text = item.category.displayName
+                    amountText.text = "$${item.totalAmount}"
+                    totalTransactionText.text = "${item.transactionsSize} Transaction(s)"
+                    categoryImg.load(getIcon(item.category))
 
                 }
             }
@@ -38,20 +40,41 @@ class TransactionCategoriesAdapter : ListAdapter<TransactionCategories, Transact
         }
 
         companion object {
-            val diffObject = object : DiffUtil.ItemCallback<TransactionCategories>() {
-                override fun areItemsTheSame(oldItem: TransactionCategories, newItem: TransactionCategories): Boolean {
-                    return oldItem.title == newItem.title
+            val diffObject = object : DiffUtil.ItemCallback<TransactionsModel>() {
+                override fun areItemsTheSame(oldItem: TransactionsModel, newItem: TransactionsModel): Boolean {
+                    return oldItem.category == newItem.category
                 }
 
-                override fun areContentsTheSame(oldItem: TransactionCategories, newItem: TransactionCategories): Boolean {
-                    return oldItem.title == newItem.title && oldItem.amount == newItem.amount
+                override fun areContentsTheSame(oldItem: TransactionsModel, newItem: TransactionsModel): Boolean {
+                    return oldItem.category == newItem.category && oldItem.transactionsSize == newItem.transactionsSize
                 }
             }
         }
 
-        private var listener: ((TransactionCategories) -> Unit)? = null
-        fun adapterClick(listener: (TransactionCategories) -> Unit) {
+        private var listener: ((TransactionsModel) -> Unit)? = null
+        fun adapterClick(listener: (TransactionsModel) -> Unit) {
             this.listener = listener
         }
+
+    private fun getIcon(category:BudgetCategory):Int{
+        return when (category) {
+            BudgetCategory.FOODANDDRINKS -> {
+                R.drawable.food
+            }
+            BudgetCategory.SHOPPING -> {
+                R.drawable.shopping_icon
+            }
+            BudgetCategory.CLOTHESANDSHOES -> {
+                R.drawable.shopping_icon
+            }
+            BudgetCategory.CLOTHINGBRANDS -> {
+                R.drawable.headset_icon
+            }
+            BudgetCategory.GYM -> {
+                R.drawable.gym_icon
+            }
+            else -> R.drawable.food
+        }
+    }
 
 }

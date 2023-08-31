@@ -1,7 +1,13 @@
 package com.starshine.betracker.db
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.starshine.betracker.R
 import com.starshine.betracker.model.TransactionCategories
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 object DummyDataBank {
     val transactionCategoryData =
@@ -46,4 +52,18 @@ object DummyDataBank {
             "Airtime/Data",
             "Savings"
         )
+
+    const val DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun checkIfSameMonth(date: String): Boolean {
+        val format =
+            DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT)
+        val localDate = LocalDateTime.parse(date, format)
+
+         return LocalDateTime.now().month ==  localDate.month
+
+    }
+
+
+
 }

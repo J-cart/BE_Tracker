@@ -18,19 +18,19 @@ data class Earning(
     companion object{
         fun getEnum(name: String): BudgetCategory {
             return when (name) {
-                BudgetCategory.FOODANDDRINKS.name -> {
+                BudgetCategory.FOODANDDRINKS.displayName -> {
                     BudgetCategory.FOODANDDRINKS
                 }
-                BudgetCategory.SHOPPING.name -> {
+                BudgetCategory.SHOPPING.displayName -> {
                     BudgetCategory.SHOPPING
                 }
-                BudgetCategory.CLOTHESANDSHOES.name -> {
+                BudgetCategory.CLOTHESANDSHOES.displayName -> {
                     BudgetCategory.CLOTHESANDSHOES
                 }
-                BudgetCategory.CLOTHINGBRANDS.name -> {
+                BudgetCategory.CLOTHINGBRANDS.displayName -> {
                     BudgetCategory.CLOTHINGBRANDS
                 }
-                BudgetCategory.GYM.name -> {
+                BudgetCategory.GYM.displayName -> {
                     BudgetCategory.GYM
                 }
                 else -> BudgetCategory.NONE

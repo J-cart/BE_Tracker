@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.starshine.betracker.db.BudgetDatabase
 import com.starshine.betracker.model.Earning
 import com.starshine.betracker.model.Expense
+import com.starshine.betracker.model.TransactionsModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
@@ -29,15 +30,23 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
     var totalBalanceFlow = MutableStateFlow(0)
         private set
 
+    var totalExpenseTransactions = MutableStateFlow<List<TransactionsModel>>(emptyList())
+        private set
+
+    var totalEarningTransactions = MutableStateFlow<List<TransactionsModel>>(emptyList())
+        private set
+
     init {
         loadAllExpense()
         loadAllEarnings()
     }
+
     private fun loadAllExpense() {
         viewModelScope.launch {
-            expenseDao.getAllExpenses().collect {expenses->
+            expenseDao.getAllExpenses().collect { expenses ->
                 totalExpenseFlow.value = expenses
                 totalBalanceFlow.value -= expenses.sumOf { it.amount }
+                loadAllExpenseTransactions()
             }
         }
     }
@@ -49,6 +58,7 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
         }
 
     }
+
     fun deleteExpense(id: String) {
         viewModelScope.launch {
             expenseDao.deleteExpense(id)
@@ -59,9 +69,10 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
     //region EARNING
     private fun loadAllEarnings() {
         viewModelScope.launch {
-            earningsDao.getAllEarnings().collect {earnings->
+            earningsDao.getAllEarnings().collect { earnings ->
                 totalEarningFlow.value = earnings
                 totalBalanceFlow.value += earnings.sumOf { it.amount }
+                loadAllEarningsTransactions()
             }
         }
     }
@@ -72,6 +83,7 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
         }
 
     }
+
     fun deleteEarning(id: String) {
         viewModelScope.launch {
             earningsDao.deleteEarning(id)
@@ -81,7 +93,41 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
     //endregion
 
 
+    fun loadAllEarningsTransactions() {
+        val transactions = mutableListOf<TransactionsModel>()
+        val distinctGroup = totalEarningFlow.value.groupBy {
+            it.category
+        }
+        distinctGroup.forEach { (budgetCategory, earnings) ->
+            transactions.add(
+                TransactionsModel(
+                    category = budgetCategory,
+                    transactionsSize = earnings.size,
+                    totalAmount = earnings.sumOf { it.amount }
+                )
+            )
+        }
+        totalEarningTransactions.value = transactions
+    }
+    private fun loadAllExpenseTransactions() {
+        val transactions = mutableListOf<TransactionsModel>()
+        val distinctGroup = totalExpenseFlow.value.groupBy {
+            it.category
+        }
+        distinctGroup.forEach { (budgetCategory, expense) ->
+            transactions.add(
+                TransactionsModel(
+                    category = budgetCategory,
+                    transactionsSize = expense.size,
+                    totalAmount = expense.sumOf { it.amount }
+                )
+            )
+        }
+        totalExpenseTransactions.value = transactions
+    }
+
 }
+
 class BudgetViewModelFactory(private val database: BudgetDatabase) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return BudgetViewModel(database) as T

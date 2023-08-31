@@ -36,4 +36,14 @@
         android:name="com.starshine.betracker.ui.Dashboard"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/transaction"
+        android:name="com.starshine.betracker.ui.transaction.Transaction"
+        android:label="fragment_transaction"
+        tools:layout="@layout/fragment_transaction" />
+    <fragment
+        android:id="@+id/transactionDetails"
+        android:name="com.starshine.betracker.ui.transaction.TransactionDetails"
+        android:label="fragment_transaction_details"
+        tools:layout="@layout/fragment_transaction_details" />
 </navigation>
