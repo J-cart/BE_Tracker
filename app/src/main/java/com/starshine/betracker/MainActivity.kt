@@ -28,11 +28,17 @@ class MainActivity : AppCompatActivity() {
             R.id.profile
         ))
 
+        val lowDestinations = arrayListOf(
+            R.id.signIn,
+            R.id.transaction,
+            R.id.transactionDetails
+        )
+
         val fragHost = supportFragmentManager.findFragmentById(R.id.fragHost) as NavHostFragment
         navController = fragHost.findNavController()
 
         navController.addOnDestinationChangedListener { _, destination, _->
-            binding.bottomNav.isVisible = destination.id != R.id.signIn
+            binding.bottomNav.isVisible = !lowDestinations.contains(destination.id)
         }
         binding.bottomNav.setupWithNavController(navController)
     }

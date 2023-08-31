@@ -23,6 +23,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#FFFFFF" />
 
+    <ImageView
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:visibility="invisible"
+        android:src="@drawable/delete_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFFFFF" />
+
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/header_text"
@@ -38,6 +53,20 @@
         app:layout_constraintStart_toEndOf="@id/back_btn"
         app:layout_constraintTop_toTopOf="@+id/back_btn"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="No transaction(s) available"
+        android:textColor="?attr/colorSurface"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/planner_recycler_view"

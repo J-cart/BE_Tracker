@@ -20,6 +20,7 @@ import com.starshine.betracker.db.BudgetDatabase
 import com.starshine.betracker.db.DummyDataBank
 import com.starshine.betracker.ui.adapters.TransactionCategoriesAdapter
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
 
 @RequiresApi(Build.VERSION_CODES.O)
 class Statistics : Fragment() {
@@ -45,6 +46,7 @@ class Statistics : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         toggleState()
         binding.plannerRecyclerView.adapter = transactionAdapter
+        binding.monthText.text = LocalDateTime.now().month.name
 
         binding.expenseHolder.setOnClickListener {
             toggleState = true
@@ -57,9 +59,9 @@ class Statistics : Fragment() {
 
         transactionAdapter.adapterClick {
             if (toggleState){
-                findNavController().navigate(R.id.transaction, bundleOf("args" to "expense"))
+                findNavController().navigate(R.id.transaction, bundleOf("args" to "expense","args2" to it.category.displayName))
             }else{
-                findNavController().navigate(R.id.transaction, bundleOf("args" to "earning"))
+                findNavController().navigate(R.id.transaction, bundleOf("args" to "earning","args2" to it.category.displayName))
             }
         }
 
@@ -112,14 +114,14 @@ class Statistics : Fragment() {
             }
         }
 
-        /*lifecycleScope.launch {
+        lifecycleScope.launch {
             viewModel.totalEarningFlow.collect {earnings->
                 val filtered =earnings.filter {
-                    DummyDataBank.checkIfSameMonth(it.dateCreated)
+                    DummyDataBank.checkIfSameMonth(it.dateCreated.toLong())
                 }
                 binding.totalAmountText.text ="$${filtered.sumOf { it.amount }}"
             }
-        }*/
+        }
 
     }
 
@@ -137,14 +139,14 @@ class Statistics : Fragment() {
             }
         }
 
-        /* lifecycleScope.launch {
+         lifecycleScope.launch {
              viewModel.totalExpenseFlow.collect {expenses->
                 val filtered =expenses.filter {
-                    DummyDataBank.checkIfSameMonth(it.dateCreated)
+                    DummyDataBank.checkIfSameMonth(it.dateCreated.toLong())
                 }
                  binding.totalAmountText.text = "$${filtered.sumOf { it.amount }}"
              }
-         }*/
+         }
 
     }
 

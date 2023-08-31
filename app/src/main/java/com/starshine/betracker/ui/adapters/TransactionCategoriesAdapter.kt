@@ -23,7 +23,9 @@ class TransactionCategoriesAdapter : ListAdapter<TransactionsModel, TransactionC
                     amountText.text = "$${item.totalAmount}"
                     totalTransactionText.text = "${item.transactionsSize} Transaction(s)"
                     categoryImg.load(getIcon(item.category))
-
+                    root.setOnClickListener {
+                        listener?.let { it(item) }
+                    }
                 }
             }
         }

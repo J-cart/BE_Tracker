@@ -1,6 +1,7 @@
 package com.starshine.betracker.db
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.starshine.betracker.R
 import com.starshine.betracker.model.TransactionCategories
@@ -53,17 +54,28 @@ object DummyDataBank {
             "Savings"
         )
 
-    const val DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
     @RequiresApi(Build.VERSION_CODES.O)
-    fun checkIfSameMonth(date: String): Boolean {
-        val format =
-            DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT)
-        val localDate = LocalDateTime.parse(date, format)
+    fun checkIfSameMonth(date: Long): Boolean {
 
-         return LocalDateTime.now().month ==  localDate.month
+        val systemTimeFormatter1 =
+            SimpleDateFormat("EEE, yyyy-MM-dd hh:mm a", Locale.getDefault()).format(date)
+        val month = SimpleDateFormat("EEE, yyyy-MM-dd hh:mm a", Locale.getDefault()).parse(
+            systemTimeFormatter1
+        )?.month ?: 0
+        val currentMonth = LocalDateTime.now().month.value
+
+        return currentMonth == month + 1
+
 
     }
 
+    fun getDate(date: Long): String {
+        return SimpleDateFormat("EEE, yyyy-MM-dd hh:mm a", Locale.getDefault()).format(date)
+    }
+
+    fun getShortDate(date: Long): String {
+        return SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(date)
+    }
 
 
 }

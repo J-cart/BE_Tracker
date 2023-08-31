@@ -59,6 +59,17 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
 
     }
 
+    fun getExpense(id: Int):Expense{
+        return totalExpenseFlow.value.find { it.tableId == id } ?: Expense()
+
+    }
+    fun deleteAllExpense() {
+        viewModelScope.launch {
+            expenseDao.deleteAll()
+        }
+
+    }
+
     fun deleteExpense(id: String) {
         viewModelScope.launch {
             expenseDao.deleteExpense(id)
@@ -84,6 +95,17 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
 
     }
 
+    fun getEarning(id: Int):Earning{
+       return totalEarningFlow.value.find { it.tableId == id } ?: Earning()
+
+    }
+
+    fun deleteAllEarning() {
+        viewModelScope.launch {
+            earningsDao.deleteAll()
+        }
+
+    }
     fun deleteEarning(id: String) {
         viewModelScope.launch {
             earningsDao.deleteEarning(id)
@@ -93,7 +115,7 @@ class BudgetViewModel(private val budgetDatabase: BudgetDatabase) : ViewModel() 
     //endregion
 
 
-    fun loadAllEarningsTransactions() {
+    private fun loadAllEarningsTransactions() {
         val transactions = mutableListOf<TransactionsModel>()
         val distinctGroup = totalEarningFlow.value.groupBy {
             it.category

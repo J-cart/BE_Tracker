@@ -17,19 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="16dp"
-        android:src="@drawable/back_arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_img" />
-
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/header_text"
@@ -39,19 +26,16 @@
         android:textColor="?attr/colorSurface"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/back_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toEndOf="@id/back_btn"
-        app:layout_constraintTop_toTopOf="@+id/back_btn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_img" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/month_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:drawableEnd="@drawable/filter_vertical_icon"
         android:drawablePadding="6dp"
         android:text="December"
@@ -60,7 +44,7 @@
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/header_text" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/total_amount_text"
