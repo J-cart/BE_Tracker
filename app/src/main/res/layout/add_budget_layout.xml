@@ -71,6 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Budget Type"
+        app:boxStrokeColor="@color/be_purple"
+        app:endIconTint="@color/be_purple"
+        app:hintTextColor="@color/be_purple"
         app:layout_constraintEnd_toEndOf="@+id/amount_edt_box"
         app:layout_constraintStart_toStartOf="@+id/amount_edt_box"
         app:layout_constraintTop_toBottomOf="@+id/amount_edt_box">

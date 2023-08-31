@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface EarningsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertExpense(earning: Earning)
+    suspend fun insertEarning(earning: Earning)
 
     @Query("SELECT * FROM `Earning table`")
     fun getAllEarnings(): Flow<List<Earning>>
