@@ -26,7 +26,7 @@ class SignIn : Fragment() {
 
         binding.signInBtn.setOnClickListener {
             val username = binding.userNameEditText.text.toString().trim()
-            val password = binding.userNameEditText.text.toString().trim()
+            val password = binding.pWEditText.text.toString().trim()
 
             if (username == "starshine" && password == "123456"){
                 val route = SignInDirections.actionSignInToDashboard()
